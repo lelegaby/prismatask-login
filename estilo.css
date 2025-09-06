@@ -54,7 +54,7 @@ body {
     pointer-events: all;
 }
 
-/* --- ÁREA DE LOGIN E CADASTRO MAIS ESCURAS E MODERNAS --- */
+
 .login-card, .signup-card {
     background: linear-gradient(135deg, #232946 80%, #38405f 100%);
     color: #fff;
@@ -67,7 +67,7 @@ body {
     animation: fadeIn 0.5s;
 }
 
-/* Logo */
+
 .logo {
     text-align: center;
     margin-bottom: 2rem;
@@ -98,14 +98,14 @@ body {
     text-shadow: 0 1px 2px #232946;
 }
 
-/* Formulários */
+
 .login-form, .signup-form {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
 
-/* Labels maiores, claras e com espaçamento */
+
 .input-group label {
     color: #a7c7ff;
     font-size: 1.11rem;
@@ -119,7 +119,7 @@ body {
     margin-top: 0;
 }
 
-/* Inputs maiores, fundo escuro e destaque ao focar */
+
 .input-group input {
     font-size: 1.13rem;
     padding: 1.05rem;
@@ -141,7 +141,7 @@ body {
     font-size: 1.03rem;
 }
 
-/* Links */
+
 .forgot-password {
     color: #87e3ff;
     text-decoration: none;
@@ -155,7 +155,7 @@ body {
     color: #43e97b;
 }
 
-/* Checkbox maior e mais visível */
+
 .options-group {
     display: flex;
     justify-content: flex-start;
@@ -185,7 +185,7 @@ body {
     color: #43e97b;
 }
 
-/* Botões grandes, arredondados, com gradiente e efeito */
+
 .login-button, .signup-button {
     font-size: 1.15rem;
     padding: 1rem 0;
@@ -205,7 +205,7 @@ body {
     transform: translateY(-2px) scale(1.04);
 }
 
-/* Separador "ou" */
+
 .separator {
     text-align: center;
     position: relative;
@@ -229,7 +229,7 @@ body {
     z-index: 1;
 }
 
-/* Google login */
+
 .google-login {
     display: flex;
     align-items: center;
@@ -252,7 +252,6 @@ body {
     color: #43e97b;
 }
 
-/* Links de cadastro/login */
 .signup-link, .login-link {
     text-align: center;
     margin-top: 1.2rem;
@@ -269,7 +268,7 @@ body {
     text-decoration: underline;
 }
 
-/* Responsividade */
+
 @media (max-width: 480px) {
     .login-card, .signup-card {
         padding: 1.2rem 0.7rem;
