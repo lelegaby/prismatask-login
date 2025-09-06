@@ -9,99 +9,89 @@
 </head>
 <body>
     <div class="forms-container">
-        
         <input type="checkbox" id="show-signup" class="toggle-checkbox">
-       
+
+        <!-- Login -->
         <div class="login-container">
             <div class="login-card">
                 <div class="logo">
                     <h1>Prismatask</h1>
                     <p>Seu gerenciador de tarefas pessoal</p>
                 </div>
-
-                <form class="login-form" role="form">
+                <form class="login-form" role="form" autocomplete="on">
                     <div class="input-group">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" placeholder="seu@email.com" required>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="username">
                     </div>
-                    
                     <div class="input-group">
                         <label for="password">Senha</label>
-                        <input type="password" id="password" placeholder="Sua senha" required>
+                        <input type="password" id="password" name="password" placeholder="Sua senha" required autocomplete="current-password">
                         <a href="#" class="forgot-password">Esqueceu a senha?</a>
                     </div>
-                    
                     <div class="options-group">
                         <label class="checkbox-container" for="remember">
-                            <input type="checkbox" id="remember">
+                            <input type="checkbox" id="remember" name="remember">
                             <span class="checkmark"></span>
                             Lembrar-me
                         </label>
                     </div>
-                    
                     <button type="submit" class="login-button" aria-label="Entrar">Entrar</button>
-                    
                     <div class="separator">
                         <span>ou</span>
                     </div>
-                    
                     <button type="button" class="google-login" aria-label="Entrar com Google">
                         <i class="fab fa-google"></i>
                         Entrar com Google
                     </button>
-                    
                     <p class="signup-link">
                         Não tem uma conta? 
-                        <label for="show-signup" class="switch-label">Cadastre-se</label>
+                        <label for="show-signup" class="switch-label" tabindex="0">Cadastre-se</label>
                     </p>
                 </form>
             </div>
         </div>
 
-        <!-- Tela de Cadastro -->
+        <!-- Cadastro -->
         <div class="signup-container">
             <div class="signup-card">
                 <div class="logo">
                     <h1>Prismatask</h1>
                     <p>Crie sua conta</p>
                 </div>
-
                 <form class="signup-form" role="form" autocomplete="off">
                     <div class="input-group">
                         <label for="signup-name">Nome completo</label>
-                        <input type="text" id="signup-name" placeholder="Seu nome completo" required>
+                        <input type="text" id="signup-name" name="signup-name" placeholder="Seu nome completo" required autocomplete="name">
                     </div>
-                    
                     <div class="input-group">
                         <label for="signup-email">E-mail</label>
-                        <input type="email" id="signup-email" placeholder="seu@email.com" required>
+                        <input type="email" id="signup-email" name="signup-email" placeholder="seu@email.com" required autocomplete="email">
                     </div>
-                    
                     <div class="input-group">
                         <label for="signup-password">Senha</label>
                         <input 
                             type="password" 
                             id="signup-password" 
+                            name="signup-password"
                             placeholder="Mínimo 8 caracteres" 
                             minlength="8" 
                             required
+                            autocomplete="new-password"
                             oninvalid="this.setCustomValidity('A senha deve ter pelo menos 8 caracteres')"
                             oninput="setCustomValidity('')">
                     </div>
-                    
                     <div class="input-group">
                         <label for="signup-confirm">Confirmar senha</label>
                         <input 
                             type="password" 
                             id="signup-confirm" 
+                            name="signup-confirm"
                             placeholder="Digite novamente sua senha" 
                             required
+                            autocomplete="new-password"
                             oninput="setCustomValidity('')">
                     </div>
-                    
-                   
-                    <span id="signup-error" style="color: red; display: none; font-size:0.95em;"></span>
-                    
+                    <span id="signup-error" style="color: #ffb3b3; display: none; font-size:0.97em;"></span>
                     <div class="options-group">
                         <label class="checkbox-container" for="terms">
                             <input type="checkbox" id="terms" required>
@@ -111,12 +101,10 @@
                             <a href="#" tabindex="0">política de privacidade</a>
                         </label>
                     </div>
-                    
                     <button type="submit" class="signup-button" aria-label="Criar Conta">Criar Conta</button>
-                    
                     <p class="login-link">
                         Já tem uma conta? 
-                        <label for="show-signup" class="switch-label">Faça login</label>
+                        <label for="show-signup" class="switch-label" tabindex="0">Faça login</label>
                     </p>
                 </form>
             </div>
@@ -124,7 +112,6 @@
     </div>
 
     <script>
-    
     document.querySelector('.signup-form').addEventListener('submit', function(e) {
         const senha = document.getElementById('signup-password').value;
         const confirma = document.getElementById('signup-confirm').value;
