@@ -5,7 +5,6 @@
     font-style: normal;
 }
 
-
 body {
     font-family: 'Klaristha', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #bcefff 0%, #6c63ff 100%);
@@ -55,10 +54,12 @@ body {
     pointer-events: all;
 }
 
+/* --- AJUSTE: FORMULÁRIO MAIS ESCURO E VISÍVEL --- */
 .login-card, .signup-card {
-    background: #ffffff;
+    background: #232946; /* azul escuro elegante */
+    color: #fff;         /* texto branco para contraste */
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
     padding: 2rem;
     width: 100%;
     height: 100%;
@@ -74,32 +75,28 @@ body {
     font-family: 'Poppins', 'Klaristha', sans-serif;
     font-size: 2.7rem;
     font-weight: 700;
- 
     background: linear-gradient(90deg, #6c63ff 20%, #43e97b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-   
     text-shadow: 0 4px 16px rgba(76, 110, 245, 0.18), 0 1px 1px #fff;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
     transition: transform 0.2s;
 }
 .logo h1:hover, .logo h1:focus {
-    
     transform: scale(1.05) rotate(-1deg);
 }
 
 .logo p {
     font-family: 'Roboto', Arial, sans-serif;
-    color: #687987;
+    color: #a5b8d8;
     font-size: 1.1rem;
     font-style: italic;
     margin: 0;
     letter-spacing: 0.5px;
-    text-shadow: 0 1px 2px #f0f4ff;
+    text-shadow: 0 1px 2px #232946;
 }
-
 
 .login-form, .signup-form {
     display: flex;
@@ -115,36 +112,40 @@ body {
 .input-group label {
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #427a73;
+    color: #87e3ff;
     font-size: 0.92rem;
     font-family: 'Roboto', Arial, sans-serif;
 }
 
+/* --- AJUSTE: INPUTS MAIS VISÍVEIS NO FUNDO ESCURO --- */
 .input-group input {
     padding: 0.8rem;
-    border: 2px solid #645454;
+    border: 2px solid #87e3ff;
     border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s;
+    background: #f4f8fb;
+    color: #232946;
+    transition: border-color 0.3s, box-shadow 0.3s;
     font-family: inherit;
 }
 
 .input-group input:focus {
     outline: none;
-    border-color: #87e3ff;
-    box-shadow: 0 0 0 3px rgba(135, 227, 255, 0.3);
+    border-color: #43e97b;
+    box-shadow: 0 0 0 3px rgba(67, 233, 123, 0.15);
 }
 
+/* --- AJUSTE: ESQUECEU A SENHA MAIS VISÍVEL --- */
 .forgot-password {
-    color: #000608;
+    color: #87e3ff;
     text-decoration: none;
     font-size: 0.8rem;
     margin-top: 0.5rem;
     text-align: right;
 }
-
 .forgot-password:hover {
     text-decoration: underline;
+    color: #43e97b;
 }
 
 .options-group {
@@ -158,7 +159,7 @@ body {
     align-items: center;
     cursor: pointer;
     font-size: 0.9rem;
-    color: #555;
+    color: #ccc;
 }
 
 .checkbox-container input {
@@ -170,16 +171,16 @@ body {
 .checkmark {
     height: 18px;
     width: 18px;
-    background-color: #ffffff;
+    background-color: #232946;
     border-radius: 4px;
     margin-right: 8px;
     position: relative;
     transition: background-color 0.3s;
-    border: 1.5px solid #aaa;
+    border: 1.5px solid #87e3ff;
 }
 
 .checkbox-container input:checked ~ .checkmark {
-    background-color: #ffffff;
+    background-color: #43e97b;
     border-color: #43e97b;
 }
 
@@ -191,7 +192,7 @@ body {
     top: 2px;
     width: 4px;
     height: 8px;
-    border: solid rgb(0, 0, 0);
+    border: solid #fff;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
@@ -218,6 +219,7 @@ body {
     transform: translateY(-2px) scale(1.03);
 }
 
+/* --- AJUSTE: CAIXA "OU" MAIS ESCURA E VISÍVEL --- */
 .separator {
     text-align: center;
     position: relative;
@@ -230,13 +232,13 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background-color: #e0e0e0;
+    background-color: #38405f;
 }
 .separator span {
-    background-color: white;
+    background-color: #232946;
     padding: 0 10px;
     position: relative;
-    color: #666;
+    color: #fff;
     font-size: 0.9rem;
 }
 
@@ -245,7 +247,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background-color: white;
+    background-color: #fff;
     color: #555;
     border: 2px solid #e0e0e0;
     padding: 0.8rem;
@@ -266,7 +268,7 @@ body {
     text-align: center;
     margin-top: 1rem;
     font-size: 0.9rem;
-    color: #555;
+    color: #ddd;
 }
 
 .switch-label {
