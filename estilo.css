@@ -1,310 +1,107 @@
-@font-face {
-    font-family: 'Klaristha';
-    src: url('fonts/Klaristha.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-body {
-    font-family: 'Klaristha', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #bcefff 0%, #6c63ff 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    line-height: 1.6;
-}
-
-.forms-container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: 600px;
-}
-
-.toggle-checkbox {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.login-container, .signup-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transition: all 0.5s ease;
-}
-
-.signup-container {
-    transform: translateY(20px);
-    opacity: 0;
-    pointer-events: none;
-}
-
-.toggle-checkbox:checked ~ .login-container {
-    transform: translateY(-20px);
-    opacity: 0;
-    pointer-events: none;
-}
-
-.toggle-checkbox:checked ~ .signup-container {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
-}
-
-/* --- AJUSTE: FORMULÁRIO MAIS ESCURO E VISÍVEL --- */
-.login-card, .signup-card {
-    background: #232946; /* azul escuro elegante */
-    color: #fff;         /* texto branco para contraste */
-    border-radius: 12px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    padding: 2rem;
+/* Fundo geral da área do formulário */
+.signup-card {
+    background: linear-gradient(135deg, #232946 80%, #38405f 100%);
+    color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.30);
+    padding: 2.5rem 2rem 2.2rem 2rem;
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s;
 }
 
-.logo {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-.logo h1 {
-    font-family: 'Poppins', 'Klaristha', sans-serif;
-    font-size: 2.7rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, #6c63ff 20%, #43e97b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 4px 16px rgba(76, 110, 245, 0.18), 0 1px 1px #fff;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
-    transition: transform 0.2s;
-}
-.logo h1:hover, .logo h1:focus {
-    transform: scale(1.05) rotate(-1deg);
-}
-
-.logo p {
-    font-family: 'Roboto', Arial, sans-serif;
-    color: #a5b8d8;
-    font-size: 1.1rem;
-    font-style: italic;
-    margin: 0;
-    letter-spacing: 0.5px;
-    text-shadow: 0 1px 2px #232946;
-}
-
-.login-form, .signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-}
-
+/* Labels mais claras, maiores e espaçadas */
 .input-group label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #87e3ff;
-    font-size: 0.92rem;
-    font-family: 'Roboto', Arial, sans-serif;
-}
-
-/* --- AJUSTE: INPUTS MAIS VISÍVEIS NO FUNDO ESCURO --- */
-.input-group input {
-    padding: 0.8rem;
-    border: 2px solid #87e3ff;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: #f4f8fb;
-    color: #232946;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    font-family: inherit;
-}
-
-.input-group input:focus {
-    outline: none;
-    border-color: #43e97b;
-    box-shadow: 0 0 0 3px rgba(67, 233, 123, 0.15);
-}
-
-/* --- AJUSTE: ESQUECEU A SENHA MAIS VISÍVEL --- */
-.forgot-password {
-    color: #87e3ff;
-    text-decoration: none;
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-    text-align: right;
-}
-.forgot-password:hover {
-    text-decoration: underline;
-    color: #43e97b;
-}
-
-.options-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: #ccc;
-}
-
-.checkbox-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.checkmark {
-    height: 18px;
-    width: 18px;
-    background-color: #232946;
-    border-radius: 4px;
-    margin-right: 8px;
-    position: relative;
-    transition: background-color 0.3s;
-    border: 1.5px solid #87e3ff;
-}
-
-.checkbox-container input:checked ~ .checkmark {
-    background-color: #43e97b;
-    border-color: #43e97b;
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-    left: 6px;
-    top: 2px;
-    width: 4px;
-    height: 8px;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-.checkbox-container input:checked ~ .checkmark:after {
+    color: #a7c7ff;
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.6rem;
+    margin-top: 1.2rem;
     display: block;
 }
-
-.login-button, .signup-button {
-    background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
-    color: white;
-    border: none;
-    padding: 0.8rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    font-family: inherit;
-    box-shadow: 0 2px 8px rgba(67, 233, 123, 0.1);
-}
-.login-button:hover, .signup-button:hover {
-    background: linear-gradient(90deg, #6c63ff 0%, #43e97b 100%);
-    transform: translateY(-2px) scale(1.03);
+.input-group:first-child label {
+    margin-top: 0;
 }
 
-/* --- AJUSTE: CAIXA "OU" MAIS ESCURA E VISÍVEL --- */
-.separator {
-    text-align: center;
-    position: relative;
-    margin: 1rem 0;
-}
-.separator:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: #38405f;
-}
-.separator span {
-    background-color: #232946;
-    padding: 0 10px;
-    position: relative;
+/* Campos de input maiores, com fonte e fundo escuro */
+.input-group input {
+    font-size: 1.12rem;
+    padding: 1.1rem;
+    background: #222844;
     color: #fff;
-    font-size: 0.9rem;
+    border: 2px solid #6c63ff;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.input-group input:focus {
+    border-color: #43e97b;
+    box-shadow: 0 0 8px #43e97b44;
+    outline: none;
+}
+.input-group input::placeholder {
+    color: #a0b3d6;
+    opacity: 1;
+    font-size: 1.02rem;
 }
 
-.google-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: #fff;
-    color: #555;
-    border: 2px solid #e0e0e0;
-    padding: 0.8rem;
-    border-radius: 8px;
+/* Checkbox maior e texto mais visível */
+.checkbox-container {
     font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: inherit;
+    margin-top: 1.3rem;
+    color: #e0e5fc;
+    gap: 10px;
+}
+.checkbox-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #43e97b;
+    margin-right: 8px;
+}
+
+/* Link dos termos em azul claro */
+.checkbox-container a {
+    color: #5cd1f9;
+    text-decoration: underline;
     font-weight: bold;
 }
-.google-login:hover {
-    background-color: #f8f9fa;
-    border-color: #43e97b;
+.checkbox-container a:hover {
     color: #43e97b;
 }
 
-.signup-link, .login-link {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #ddd;
-}
-
-.switch-label {
-    color: #5cd1f9;
-    text-decoration: none;
-    font-weight: bold;
+/* Botão Criar Conta mais destacado */
+.signup-button {
+    font-size: 1.13rem;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    box-shadow: 0 4px 18px #43e97b33;
+    transition: background 0.3s, transform 0.2s;
     cursor: pointer;
 }
-
-.switch-label:hover {
-    text-decoration: underline;
+.signup-button:hover {
+    background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+    transform: translateY(-2px) scale(1.04);
 }
 
+/* Ajuste responsivo para telas pequenas */
 @media (max-width: 480px) {
-    .login-card, .signup-card {
-        padding: 1.5rem;
+    .signup-card {
+        padding: 1.2rem 0.7rem;
     }
-    .logo h1 {
-        font-size: 2rem;
+    .input-group input {
+        font-size: 1rem;
+        padding: 0.8rem;
     }
-    body {
-        padding: 10px;
-    }
-    .forms-container {
-        height: auto;
-        min-height: 100vh;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .signup-button {
+        font-size: 1rem;
+        padding: 0.8rem 0;
     }
 }
