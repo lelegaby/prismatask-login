@@ -9,10 +9,9 @@
 </head>
 <body>
     <div class="forms-container">
-        <!-- Checkbox invisível para controlar a transição -->
-        <input type="checkbox" id="show-signup" class="toggle-checkbox">
         
-        <!-- Tela de Login -->
+        <input type="checkbox" id="show-signup" class="toggle-checkbox">
+       
         <div class="login-container">
             <div class="login-card">
                 <div class="logo">
@@ -100,7 +99,7 @@
                             oninput="setCustomValidity('')">
                     </div>
                     
-                    <!-- Span para mostrar mensagens de erro -->
+                   
                     <span id="signup-error" style="color: red; display: none; font-size:0.95em;"></span>
                     
                     <div class="options-group">
@@ -125,7 +124,7 @@
     </div>
 
     <script>
-    // Validação extra para confirmação de senha
+    
     document.querySelector('.signup-form').addEventListener('submit', function(e) {
         const senha = document.getElementById('signup-password').value;
         const confirma = document.getElementById('signup-confirm').value;
