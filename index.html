@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prismatask - Login e Cadastro</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="forms-container">
+        <!-- Checkbox invisível para controlar a transição -->
+        <input type="checkbox" id="show-signup" class="toggle-checkbox">
+        
+        <!-- Tela de Login -->
+        <div class="login-container">
+            <div class="login-card">
+                <div class="logo">
+                    <h1>Prismatask</h1>
+                    <p>Seu gerenciador de tarefas pessoal</p>
+                </div>
+
+                <form class="login-form" role="form">
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="seu@email.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="Sua senha" required>
+                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+                    
+                    <div class="options-group">
+                        <label class="checkbox-container" for="remember">
+                            <input type="checkbox" id="remember">
+                            <span class="checkmark"></span>
+                            Lembrar-me
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="login-button" aria-label="Entrar">Entrar</button>
+                    
+                    <div class="separator">
+                        <span>ou</span>
+                    </div>
+                    
+                    <button type="button" class="google-login" aria-label="Entrar com Google">
+                        <i class="fab fa-google"></i>
+                        Entrar com Google
+                    </button>
+                    
+                    <p class="signup-link">
+                        Não tem uma conta? 
+                        <label for="show-signup" class="switch-label">Cadastre-se</label>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tela de Cadastro -->
+        <div class="signup-container">
+            <div class="signup-card">
+                <div class="logo">
+                    <h1>Prismatask</h1>
+                    <p>Crie sua conta</p>
+                </div>
+
+                <form class="signup-form" role="form" autocomplete="off">
+                    <div class="input-group">
+                        <label for="signup-name">Nome completo</label>
+                        <input type="text" id="signup-name" placeholder="Seu nome completo" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="signup-email">E-mail</label>
+                        <input type="email" id="signup-email" placeholder="seu@email.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="signup-password">Senha</label>
+                        <input 
+                            type="password" 
+                            id="signup-password" 
+                            placeholder="Mínimo 8 caracteres" 
+                            minlength="8" 
+                            required
+                            oninvalid="this.setCustomValidity('A senha deve ter pelo menos 8 caracteres')"
+                            oninput="setCustomValidity('')">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="signup-confirm">Confirmar senha</label>
+                        <input 
+                            type="password" 
+                            id="signup-confirm" 
+                            placeholder="Digite novamente sua senha" 
+                            required
+                            oninput="setCustomValidity('')">
+                    </div>
+                    
+                    <!-- Span para mostrar mensagens de erro -->
+                    <span id="signup-error" style="color: red; display: none; font-size:0.95em;"></span>
+                    
+                    <div class="options-group">
+                        <label class="checkbox-container" for="terms">
+                            <input type="checkbox" id="terms" required>
+                            <span class="checkmark"></span>
+                            Aceito os 
+                            <a href="#" tabindex="0">termos de uso</a> e 
+                            <a href="#" tabindex="0">política de privacidade</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="signup-button" aria-label="Criar Conta">Criar Conta</button>
+                    
+                    <p class="login-link">
+                        Já tem uma conta? 
+                        <label for="show-signup" class="switch-label">Faça login</label>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Validação extra para confirmação de senha
+    document.querySelector('.signup-form').addEventListener('submit', function(e) {
+        const senha = document.getElementById('signup-password').value;
+        const confirma = document.getElementById('signup-confirm').value;
+        const errorSpan = document.getElementById('signup-error');
+
+        if (senha !== confirma) {
+            e.preventDefault();
+            errorSpan.textContent = "As senhas não coincidem.";
+            errorSpan.style.display = "block";
+            document.getElementById('signup-confirm').focus();
+        } else {
+            errorSpan.style.display = "none";
+        }
+    });
+    </script>
+</body>
+</html>
