@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prismatask</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+  <main class="login-screen">
+    <section class="branding">
+      <img src="assets/logo-prismatask.png" alt="Logo Prismatask" class="logo" />
+      <h1 class="app-name">prismatask</h1>
+      <div class="tagline-container">
+        <span class="asterisk">✦</span>
+        <p class="tagline">Seu gerenciador de tarefas pessoal</p>
+      </div>
+    </section>
+
+    <section class="login-form">
+      <form id="login-form" aria-labelledby="login-title">
+        <h2 id="login-title">Entrar na sua conta</h2>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required aria-required="true" />
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" required minlength="6" aria-required="true" />
+
+        <div class="remember">
+          <input type="checkbox" id="lembrar" />
+          <label for="lembrar">Lembrar-me</label>
+        </div>
+
+        <button type="submit" aria-label="Entrar na conta">Entrar</button>
+
+        <div class="separator">Ou</div>
+
+        <button type="button" class="google-login" aria-label="Entrar com Google">
+          <span class="google-icon">G</span> Entrar com Google
+        </button>
+
+        <div id="error-message" role="alert" aria-live="assertive"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      const email = document.getElementById('email');
+      const senha = document.getElementById('senha');
+      const errorDiv = document.getElementById('error-message');
+
+      errorDiv.textContent = '';
+
+      if (!email.value.includes('@')) {
+        e.preventDefault();
+        errorDiv.textContent = 'Por favor, insira um email válido.';
+        email.focus();
+        return;
+      }
+
+      if (senha.value.length < 6) {
+        e.preventDefault();
+        errorDiv.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+        senha.focus();
+        return;
+      }
+    });
+  </script>
+</body>
+</html>
