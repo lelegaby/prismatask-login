@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+.login-screen {
+  display: flex;
+  height: 100vh;
+}
+
+.branding {
+  flex: 1;
+  background: linear-gradient(135deg, #debfff, #2a4b83);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.logo {
+  width: 300px;
+  max-width: 80%;
+}
+
+.app-name {
+  font-family: 'Georgia', serif;
+  font-size: 36px;
+  color: white;
+}
+
+.tagline {
+  font-size: 16px;
+  background: white;
+  color: #2575fc;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #2575fc;
+  margin-top: 10px;
+}
+
+.login-form {
+  flex: 1;
+  background: linear-gradient(to bottom, #8c63b8, #2a4b83);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+form h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #fff;
+}
+
+form input {
+  background-color: #f3f3f3;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  margin-top: 5px;
+  color: #333;
+}
+
+form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: #2575fc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #1a5edb;
+}
+
+.switch-text {
+  margin-top: 15px;
+  color: white;
+  text-align: center;
+}
+
+.switch-link {
+  color: rgb(234, 103, 64);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+body.contr

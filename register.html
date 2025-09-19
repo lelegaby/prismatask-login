@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - Prismatask</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+  <link rel="stylesheet" href="css/acessibilidade.css" />
+  <script defer src="js/register.js"></script>
+  <script defer src="js/acessibilidade.js"></script>
+</head>
+<body>
+  <main class="login-screen">
+    <section class="branding">
+      <img src="assets/logo-prismatask.png" alt="Logo Prismatask" class="logo" />
+      <h1 class="app-name">prismatask</h1>
+      <div class="tagline-container">
+        <span class="asterisk">✦</span>
+        <p class="tagline">Seu gerenciador de tarefas pessoal</p>
+      </div>
+    </section>
+
+    <section class="login-form">
+      <form id="form-register">
+        <h2>Criar conta</h2>
+        <label for="email-register">E-mail</label>
+        <input type="email" id="email-register" required />
+        <label for="password-register">Senha</label>
+        <input type="password" id="password-register" required />
+        <label for="confirm-password">Confirmar senha</label>
+        <input type="password" id="confirm-password" required />
+        <button type="submit">Salvar</button>
+        <p id="mensagem" aria-live="assertive"></p>
+        <p class="switch-text">
+          Já tem conta? <a href="index.html" class="switch-link">Entrar</a>
+        </p>
+      </form>
+
+      <aside id="painel-acessibilidade">
+        <h3>Acessibilidade</h3>
+        <button onclick="aumentarFonte()">🅰️ Fonte</button>
+        <button onclick="fonteLegivel()">🔤 Tipo</button>
+        <button onclick="modoContraste()">🌗 Contraste</button>
+        <button onclick="mascaraLeitura()">🕶️ Máscara</button>
+        <button onclick="guiaLeitura()">📏 Guia</button>
+        <button onclick="ativarLupa()">🔍 Lupa</button>
+        <button onclick="cursorGrande()">🖱️ Cursor</button>
+        <button onclick="controleVoz()">🎙️ Voz</button>
+        <button onclick="ativarVLibras()">🤟 LIBRAS</button>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

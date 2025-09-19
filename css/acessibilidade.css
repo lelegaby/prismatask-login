@@ -1,0 +1,35 @@
+#painel-acessibilidade {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background-color: #333;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  color: white;
+  max-width: 220px;
+}
+
+#painel-acessibilidade h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+#painel-acessibilidade button {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+#painel-acessibilidade button:hover {
+  background-color: #777;
+}

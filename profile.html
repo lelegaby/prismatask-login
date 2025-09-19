@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil Prismatask</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+  <script defer src="js/profile.js"></script>
+  <script defer src="js/acessibilidade.js"></script>
+</head>
+<body>
+
+  <!-- Painel de Acessibilidade -->
+  <aside id="painel-acessibilidade" aria-label="Painel de acessibilidade">
+    <button onclick="aumentarFonte()" aria-label="Aumentar fonte">🅰️ Fonte</button>
+    <button onclick="modoLeitura()" aria-label="Modo leitura">📖 Leitura</button>
+    <button onclick="destacarLinks()" aria-label="Destacar links">🔗 Links</button>
+    <button onclick="fonteLegivel()" aria-label="Fonte legível">🔤 Legível</button>
+  </aside>
+
+  <main class="profile-screen">
+    <section class="branding">
+      <img src="assets/logo-prismatask.png" alt="Logo Prismatask" class="logo" />
+      <h1 class="app-name">prismatask</h1>
+      <div class="tagline-container">
+        <span class="asterisk" aria-hidden="true">✦</span>
+        <p class="tagline">Bem-vinda, Letícia!</p>
+      </div>
+    </section>
+
+    <section class="profile-info" aria-label="Informações do perfil">
+      <h2>Perfil do Usuário</h2>
+      <p id="email"></p>
+      <p id="status">
