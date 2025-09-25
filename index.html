@@ -4,11 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prismatask - Login</title>
+
   <link rel="stylesheet" href="css/estilo.css" />
   <link rel="stylesheet" href="css/acessibilidade.css" />
-  <script defer src="js/login.js"></script>
-  <script defer src="js/acessibilidade.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.0/open-dyslexic.min.css" />
+
+  <!-- Importa a biblioteca do Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+  <!-- Inicializa o Supabase -->
+  <script>
+    window.SUPABASE_URL = 'https://SEU-PROJETO.supabase.co'; // substitua
+    window.SUPABASE_ANON_KEY = 'SUA_ANON_KEY_PUBLICA'; // substitua
+
+    if (window.supabase) {
+      window.supabaseClient = supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+    } else {
+      console.error('Supabase não disponível. Verifique a importação via CDN.');
+    }
+  </script>
 </head>
+
 <body>
   <main class="login-screen">
     <section class="branding">
@@ -21,22 +37,33 @@
     </section>
 
     <section class="login-form">
-      <form id="form-login">
+      <form id="form-login" aria-label="Formulário de login">
         <h2>Entrar na sua conta</h2>
+
         <label for="email-login">E-mail</label>
-        <input type="email" id="email-login" required />
+        <input type="email" id="email-login" required autocomplete="email" />
+
         <label for="password-login">Senha</label>
-        <input type="password" id="password-login" required />
+        <input type="password" id="password-login" required autocomplete="current-password" />
+
+        <label for="remember-me" class="remember-label">
+          <input type="checkbox" id="remember-me" name="remember-me" />
+          Lembrar-me
+        </label>
+
         <button type="submit">Entrar</button>
+
         <p class="switch-text">
           Ainda não tem conta? <a href="register.html" class="switch-link">Cadastrar</a>
         </p>
       </form>
 
-      <aside id="painel-acessibilidade">
+      <button onclick="togglePainel()" class="btn-acesso" id="botao-acesso">🛠️ Acessibilidade</button>
+
+      <div id="painel-acessibilidade" class="oculto" aria-hidden="true">
         <h3>Acessibilidade</h3>
-        <button onclick="aumentarFonte()">🅰️ Fonte</button>
-        <button onclick="fonteLegivel()">🔤 Tipo</button>
+        <button onclick="toggleFonte()">🅰️ Fonte</button>
+        <button onclick="toggleFonteLegivel()">🔤 Tipo</button>
         <button onclick="modoContraste()">🌗 Contraste</button>
         <button onclick="mascaraLeitura()">🕶️ Máscara</button>
         <button onclick="guiaLeitura()">📏 Guia</button>
@@ -44,8 +71,11 @@
         <button onclick="cursorGrande()">🖱️ Cursor</button>
         <button onclick="controleVoz()">🎙️ Voz</button>
         <button onclick="ativarVLibras()">🤟 LIBRAS</button>
-      </aside>
+      </div>
     </section>
   </main>
+
+  <script type="module" src="js/login.js" defer></script>
+  <script src="js/acessibilidade.js" defer></script>
 </body>
 </html>

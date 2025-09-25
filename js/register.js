@@ -1,4 +1,5 @@
 import { register } from './api.js';
+import { mostrarLogin } from './login.js';
 
 document.getElementById('form-register').addEventListener('submit', async function (e) {
   e.preventDefault();
@@ -17,11 +18,15 @@ document.getElementById('form-register').addEventListener('submit', async functi
     const result = await register(email, senha);
     if (result.success) {
       mensagemEl.textContent = 'Usuário criado com sucesso!';
-      setTimeout(() => window.location.href = 'index.html', 2000);
+      setTimeout(() => {
+        mostrarLogin();
+        mensagemEl.textContent = '';
+      }, 2000);
     } else {
       mensagemEl.textContent = result.error || 'Erro ao cadastrar.';
     }
   } catch (err) {
+    console.error(err);
     mensagemEl.textContent = 'Erro de conexão com o servidor.';
   }
 });

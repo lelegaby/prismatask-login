@@ -1,54 +1,47 @@
-import { login } from './api.js';
 
-document.getElementById('form-login').addEventListener('submit', async function (e) {
-  e.preventDefault();
-  const email = document.getElementById('email-login').value;
-  const senha = document.getElementById('password-login').value;
+import { login as apiLogin } from './api.js';
 
-  try {
-    const result = await login(email, senha);
-    if (result.success) {
-      window.location.href = 'profile.html';
-    } else {
-      alert('Login inválido!');
-    }
-  } catch (err) {
-    console.error(err);
-    alert('Erro ao conectar com o servidor.');
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('form-login');
+  const emailInput = document.getElementById('email-login');
+  const passInput = document.getElementById('password-login');
+  const rememberCheckbox = document.getElementById('remember-me');
+
+
+  const emailSalvo = localStorage.getItem('emailSalvo');
+  if (emailSalvo) {
+    emailInput.value = emailSalvo;
+    rememberCheckbox.checked = true;
   }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const email = emailInput.value.trim();
+    const senha = passInput.value;
+
+    if (!email || !senha) {
+      alert('Preencha e-mail e senha.');
+      return;
+    }
+
+    try {
+      const result = await apiLogin(email, senha);
+
+      if (result.success) {
+        if (rememberCheckbox.checked) {
+          localStorage.setItem('emailSalvo', email);
+        } else {
+          localStorage.removeItem('emailSalvo');
+        }
+        
+        window.location.href = 'profile.html';
+      } else {
+        alert(result.error || 'Login inválido!');
+      }
+    } catch (err) {
+      console.error('Erro no login:', err);
+      alert('Erro ao conectar com o servidor.');
+    }
+  });
 });
-function mostrarCadastro() {
-  const loginForm = document.getElementById('form-login');
-  const registerForm = document.getElementById('form-register');
-
-  loginForm.classList.remove('active');
-  loginForm.classList.add('hidden');
-
-  registerForm.classList.remove('hidden');
-  registerForm.classList.add('active');
-}
-
-function mostrarLogin() {
-  const loginForm = document.getElementById('form-login');
-  const registerForm = document.getElementById('form-register');
-
-  registerForm.classList.remove('active');
-  registerForm.classList.add('hidden');
-
-  loginForm.classList.remove('hidden');
-  loginForm.classList.add('active');
-}
-
-function mostrarCadastro() {
-  document.getElementById('form-login').classList.remove('active');
-  document.getElementById('form-login').classList.add('hidden');
-  document.getElementById('form-register').classList.remove('hidden');
-  document.getElementById('form-register').classList.add('active');
-}
-
-function mostrarLogin() {
-  document.getElementById('form-register').classList.remove('active');
-  document.getElementById('form-register').classList.add('hidden');
-  document.getElementById('form-login').classList.remove('hidden');
-  document.getElementById('form-login').classList.add('active');
-}

@@ -4,18 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfil Prismatask</title>
+
   <link rel="stylesheet" href="css/estilo.css" />
-  <script defer src="js/profile.js"></script>
+  <script type="module" src="js/profile.js"></script>
   <script defer src="js/acessibilidade.js"></script>
 </head>
-<body>
 
-  <!-- Painel de Acessibilidade -->
-  <aside id="painel-acessibilidade" aria-label="Painel de acessibilidade">
-    <button onclick="aumentarFonte()" aria-label="Aumentar fonte">🅰️ Fonte</button>
-    <button onclick="modoLeitura()" aria-label="Modo leitura">📖 Leitura</button>
-    <button onclick="destacarLinks()" aria-label="Destacar links">🔗 Links</button>
-    <button onclick="fonteLegivel()" aria-label="Fonte legível">🔤 Legível</button>
+<body>
+  <aside aria-label="Painel de acessibilidade">
+    <button onclick="togglePainel()" class="btn-acesso" id="botao-acesso">🛠️ Acessibilidade</button>
+
+    <div id="painel-acessibilidade" class="oculto">
+      <h3>Acessibilidade</h3>
+      <button onclick="toggleFonte()">🅰️ Fonte</button>
+      <button onclick="toggleFonteLegivel()">🔤 Tipo</button>
+      <button onclick="modoContraste()">🌗 Contraste</button>
+      <button onclick="mascaraLeitura()">🕶️ Máscara</button>
+      <button onclick="guiaLeitura()">📏 Guia</button>
+      <button onclick="ativarLupa()">🔍 Lupa</button>
+      <button onclick="cursorGrande()">🖱️ Cursor</button>
+      <button onclick="controleVoz()">🎙️ Voz</button>
+      <button onclick="ativarVLibras()">🤟 LIBRAS</button>
+    </div>
   </aside>
 
   <main class="profile-screen">
@@ -30,5 +40,9 @@
 
     <section class="profile-info" aria-label="Informações do perfil">
       <h2>Perfil do Usuário</h2>
-      <p id="email"></p>
-      <p id="status">
+      <p><strong>E-mail:</strong> <span id="email">Carregando...</span></p>
+      <p><strong>Status:</strong> <span id="status">Carregando...</span></p>
+    </section>
+  </main>
+</body>
+</html>

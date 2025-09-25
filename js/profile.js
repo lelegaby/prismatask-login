@@ -3,7 +3,7 @@ const statusEl = document.getElementById('status');
 const mensagemEl = document.getElementById('mensagem');
 const btnLogout = document.getElementById('btn-logout');
 
-// 🔊 Leitura por voz com fallback
+k
 function lerTexto(texto) {
   if ('speechSynthesis' in window) {
     const fala = new SpeechSynthesisUtterance(texto);
@@ -14,7 +14,7 @@ function lerTexto(texto) {
   }
 }
 
-// 🔐 Carregar dados do perfil
+
 function carregarPerfil() {
   const token = localStorage.getItem('token');
 
@@ -39,8 +39,8 @@ function carregarPerfil() {
     })
     .then(data => {
       if (data.email) {
-        emailEl.innerHTML = `<strong>Email:</strong> ${data.email}`;
-        statusEl.innerHTML = `<strong>Status:</strong> ${data.message || 'Ativo'}`;
+        emailEl.textContent = data.email;
+        statusEl.textContent = data.message || 'Ativo';
         mensagemEl.textContent = '';
         lerTexto(`Perfil carregado com sucesso. Email: ${data.email}`);
       } else {
@@ -55,11 +55,13 @@ function carregarPerfil() {
     });
 }
 
-// 🔓 Logout
-btnLogout.addEventListener('click', () => {
-  localStorage.removeItem('token');
-  window.location.href = 'index.html';
-});
 
-// 🚀 Inicialização
+if (btnLogout) {
+  btnLogout.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    window.location.href = 'index.html';
+  });
+}
+
+
 document.addEventListener('DOMContentLoaded', carregarPerfil);

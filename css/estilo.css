@@ -1,24 +1,30 @@
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
+
+html, body {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fff;
-  color: #333;
+  background: linear-gradient(to bottom right, #8c63b8, #2a4b83); /* Fundo roxo restaurado */
+  color: #fff;
+  scroll-behavior: smooth;
 }
+
 
 .login-screen {
   display: flex;
   height: 100vh;
+  flex-direction: row;
 }
+
 
 .branding {
   flex: 1;
-  background: linear-gradient(135deg, #debfff, #2a4b83);
+  background: linear-gradient(135deg, #8c63b8, #2a4b83); /* Unificado com a identidade */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,9 +54,10 @@ body, html {
   margin-top: 10px;
 }
 
+
 .login-form {
   flex: 1;
-  background: linear-gradient(to bottom, #8c63b8, #2a4b83);
+  background: transparent; /* Mantém o fundo global */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,13 +66,18 @@ body, html {
   position: relative;
 }
 
+
 form {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15); /* Levemente mais visível */
   padding: 40px;
   border-radius: 10px;
   max-width: 400px;
   width: 100%;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+  
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
 form h2 {
@@ -89,7 +101,14 @@ form input {
   width: 100%;
   margin-top: 5px;
   color: #333;
+  font-size: 1rem;
 }
+
+form input:focus-visible {
+  outline: 2px solid #2575fc;
+  outline-offset: 2px;
+}
+
 
 form button {
   margin-top: 20px;
@@ -101,16 +120,19 @@ form button {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 form button:hover {
   background-color: #1a5edb;
 }
 
+
 .switch-text {
   margin-top: 15px;
   color: white;
   text-align: center;
+  font-size: 0.95rem;
 }
 
 .switch-link {
@@ -119,4 +141,43 @@ form button:hover {
   text-decoration: underline;
 }
 
-body.contr
+
+.remember-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  font-weight: normal;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.remember-label input[type="checkbox"] {
+  accent-color: #2575fc;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+  .login-screen {
+    flex-direction: column;
+  }
+
+  .branding, .login-form {
+    padding: 20px;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  .app-name {
+    font-size: 28px;
+  }
+
+  .logo {
+    width: 200px;
+  }
+}

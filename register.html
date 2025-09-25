@@ -4,42 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastro - Prismatask</title>
+
+  
   <link rel="stylesheet" href="css/estilo.css" />
   <link rel="stylesheet" href="css/acessibilidade.css" />
-  <script defer src="js/register.js"></script>
-  <script defer src="js/acessibilidade.js"></script>
+
+ 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.0/open-dyslexic.min.css" />
 </head>
+
 <body>
   <main class="login-screen">
-    <section class="branding">
+    
+    <section class="branding" aria-label="Identidade visual">
       <img src="assets/logo-prismatask.png" alt="Logo Prismatask" class="logo" />
       <h1 class="app-name">prismatask</h1>
-      <div class="tagline-container">
-        <span class="asterisk">✦</span>
-        <p class="tagline">Seu gerenciador de tarefas pessoal</p>
-      </div>
+      <p class="tagline">Seu gerenciador de tarefas pessoal</p>
     </section>
 
-    <section class="login-form">
-      <form id="form-register">
-        <h2>Criar conta</h2>
+   
+    <section class="login-form" aria-label="Formulário de cadastro">
+      <form id="form-register" aria-describedby="instrucoes-cadastro" novalidate>
+        <h2 id="instrucoes-cadastro">Criar conta</h2>
+
         <label for="email-register">E-mail</label>
-        <input type="email" id="email-register" required />
+        <input type="email" id="email-register" name="email" required autocomplete="email" />
+
         <label for="password-register">Senha</label>
-        <input type="password" id="password-register" required />
+        <input type="password" id="password-register" name="senha" required minlength="8" autocomplete="new-password" />
+
         <label for="confirm-password">Confirmar senha</label>
-        <input type="password" id="confirm-password" required />
+        <input type="password" id="confirm-password" name="confirmar" required minlength="8" />
+
         <button type="submit">Salvar</button>
-        <p id="mensagem" aria-live="assertive"></p>
+
+        <p id="mensagem" aria-live="assertive" class="mensagem-erro"></p>
+
         <p class="switch-text">
           Já tem conta? <a href="index.html" class="switch-link">Entrar</a>
         </p>
       </form>
 
-      <aside id="painel-acessibilidade">
+     
+      <button onclick="togglePainel()" class="btn-acesso" id="botao-acesso" aria-label="Abrir opções de acessibilidade">🛠️ Acessibilidade</button>
+
+      <div id="painel-acessibilidade" class="oculto" aria-hidden="true" aria-label="Painel de acessibilidade">
         <h3>Acessibilidade</h3>
-        <button onclick="aumentarFonte()">🅰️ Fonte</button>
-        <button onclick="fonteLegivel()">🔤 Tipo</button>
+        <button onclick="toggleFonte()">🅰️ Fonte</button>
+        <button onclick="toggleFonteLegivel()">🔤 Tipo</button>
         <button onclick="modoContraste()">🌗 Contraste</button>
         <button onclick="mascaraLeitura()">🕶️ Máscara</button>
         <button onclick="guiaLeitura()">📏 Guia</button>
@@ -47,8 +59,12 @@
         <button onclick="cursorGrande()">🖱️ Cursor</button>
         <button onclick="controleVoz()">🎙️ Voz</button>
         <button onclick="ativarVLibras()">🤟 LIBRAS</button>
-      </aside>
+      </div>
     </section>
   </main>
+
+  
+  <script src="js/register.js" defer></script>
+  <script src="js/acessibilidade.js" defer></script>
 </body>
 </html>
