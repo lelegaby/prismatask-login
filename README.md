@@ -22,7 +22,9 @@ Como executar localmente
 Clone o repositório:
 bash
 git clone https://github.com/seu-usuario/prismatask.git
+
 cd prismatask
+
 Abra o projeto no VS Code ou outro editor.
 
 Configure o Supabase:
