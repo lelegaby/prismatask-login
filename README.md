@@ -44,10 +44,14 @@ SUPABASE_ANON_KEY
 
 No index.html, substitua:
 js
+
 window.SUPABASE_URL = 'https://SEU-PROJETO.supabase.co';
+
 window.SUPABASE_ANON_KEY = 'SUA_ANON_KEY_PUBLICA';
+
 Execute o projeto:
 Basta abrir index.html em seu navegador.
+
 Para testes locais com OAuth (Google), use um servidor local como o Live Server do VS Code.
 
 Autenticação
@@ -64,8 +68,11 @@ Fonte legível (OpenDyslexic)
 Controle por voz e integração com VLibras
 
 Requisitos
+
 Navegador moderno (Chrome, Firefox, Edge)
+
 Conexão com Supabase
+
 Para OAuth: conta Google e configuração de redirect URI no Supabase
 
  Licença
