@@ -1,67 +1,55 @@
-const emailEl = document.getElementById('email');
-const statusEl = document.getElementById('status');
-const mensagemEl = document.getElementById('mensagem');
-const btnLogout = document.getElementById('btn-logout');
 
-k
-function lerTexto(texto) {
-  if ('speechSynthesis' in window) {
-    const fala = new SpeechSynthesisUtterance(texto);
-    fala.lang = 'pt-BR';
-    speechSynthesis.speak(fala);
-  } else {
-    console.warn('Leitor de voz não suportado neste navegador.');
-  }
-}
+import { getCurrentUser } from './api.js';
 
+document.addEventListener('DOMContentLoaded', async () => {
+  const emailEl = document.getElementById('email');
+  const statusEl = document.getElementById('status');
+  const logoutBtn = document.getElementById('logout-btn');
 
-function carregarPerfil() {
-  const token = localStorage.getItem('token');
+  
+  emailEl.textContent = 'Carregando...';
+  statusEl.textContent = 'Carregando...';
 
-  if (!token) {
-    mensagemEl.textContent = 'Você não está logado.';
-    lerTexto(mensagemEl.textContent);
-    emailEl.textContent = '';
-    statusEl.textContent = '';
-    return;
-  }
+  try {
+    const user = await getCurrentUser();
 
-  fetch('http://localhost:5000/api/profile', {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json'
+    if (user) {
+     
+      emailEl.textContent = user.email || 'Não disponível';
+
+    
+      const confirmado =
+        Boolean(user.email_confirmed_at) || Boolean(user.confirmed_at);
+
+      statusEl.textContent = confirmado ? 'Verificado' : 'Pendente';
+    } else {
+      emailEl.textContent = 'Usuário não autenticado';
+      statusEl.textContent = 'Desconectado';
+
+     
     }
-  })
-    .then(res => {
-      if (!res.ok) throw new Error('Resposta inválida da API');
-      return res.json();
-    })
-    .then(data => {
-      if (data.email) {
-        emailEl.textContent = data.email;
-        statusEl.textContent = data.message || 'Ativo';
-        mensagemEl.textContent = '';
-        lerTexto(`Perfil carregado com sucesso. Email: ${data.email}`);
-      } else {
-        throw new Error(data.error || 'Dados incompletos');
+  } catch (err) {
+    console.error('Erro ao obter usuário:', err);
+    emailEl.textContent = 'Erro ao carregar';
+    statusEl.textContent = 'Erro';
+  }
+
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async () => {
+      try {
+        const { error } = await window.supabaseClient.auth.signOut();
+        if (error) {
+          console.error('Erro ao sair:', error.message);
+          alert('Erro ao sair: ' + error.message);
+        } else {
+          
+          window.location.href = 'index.html';
+        }
+      } catch (err) {
+        console.error('Erro inesperado no logout:', err);
+        alert('Erro inesperado ao sair.');
       }
-    })
-    .catch(err => {
-      mensagemEl.textContent = err.message || 'Erro ao carregar perfil.';
-      emailEl.textContent = '';
-      statusEl.textContent = '';
-      lerTexto(mensagemEl.textContent);
     });
-}
-
-
-if (btnLogout) {
-  btnLogout.addEventListener('click', () => {
-    localStorage.removeItem('token');
-    window.location.href = 'index.html';
-  });
-}
-
-
-document.addEventListener('DOMContentLoaded', carregarPerfil);
+  }
+});

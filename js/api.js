@@ -20,3 +20,9 @@ export async function login(email, senha) {
   if (error) return { success: false, error: error.message };
   return { success: true, data };
 }
+
+export async function getCurrentUser() {
+  ensureClient();
+  const { data } = await supabase.auth.getUser();
+  return data?.user || null;
+}

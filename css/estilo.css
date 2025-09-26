@@ -9,7 +9,7 @@
 html, body {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #8c63b8, #2a4b83); /* Fundo roxo restaurado */
+  background: linear-gradient(to bottom right, #8c63b8, #2a4b83); 
   color: #fff;
   scroll-behavior: smooth;
 }
@@ -24,7 +24,7 @@ html, body {
 
 .branding {
   flex: 1;
-  background: linear-gradient(135deg, #8c63b8, #2a4b83); /* Unificado com a identidade */
+  background: linear-gradient(135deg, #8c63b8, #2a4b83); 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,7 +57,7 @@ html, body {
 
 .login-form {
   flex: 1;
-  background: transparent; /* Mantém o fundo global */
+  background: transparent; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,7 +68,7 @@ html, body {
 
 
 form {
-  background: rgba(255, 255, 255, 0.15); /* Levemente mais visível */
+  background: rgba(255, 255, 255, 0.15); 
   padding: 40px;
   border-radius: 10px;
   max-width: 400px;
