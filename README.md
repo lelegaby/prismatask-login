@@ -1,20 +1,19 @@
 Prismatask – Gerenciador de Tarefas Pessoais
 Prismatask é um sistema web de gerenciamento de tarefas pessoais com foco em acessibilidade, usabilidade e autenticação segura. Desenvolvido com HTML, CSS, JavaScript e Supabase, o projeto oferece uma interface intuitiva para login, cadastro e visualização de perfil
 
-prismatask/
-├── index.html               
-├── register.html            
-├── profile.html             
+├── index.html            - Tela de login com autenticação via e-mail/senha e Google
+├── register.html        -  Tela de cadastro com validação e suporte a OAuth
+├── profile.html        -  Tela de perfil do usuário autenticado
 ├── css/
-│   ├── estilo.css          
-│   └── acessibilidade.css  
+│   ├── estilo.css       -  Estilização principal com design responsivo e variáveis CSS
+│   └── acessibilidade.css -  Estilos para recursos inclusivos (contraste, fonte legível, etc.)
 ├── js/
-│   ├── login.js             
-│   ├── register.js         
-│   ├── profile.js          
-│   ├── api.js               
-│   └── acessibilidade.js    
-└── assets/                 
+│   ├── login.js         -  Validação de login e integração com Supabase
+│   ├── register.js       - Validação de cadastro e integração com Supabase
+│   ├── profile.js       -  Exibição de dados do usuário e logout
+│   ├── api.js           -  Funções centralizadas de autenticação via Supabase
+│   └── acessibilidade.js - Controle do painel de acessibilidade e ajustes visuais
+└── assets/              - Imagens e ícones utilizados na interface/                 
 
 
 Como executar localmente
